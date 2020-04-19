@@ -22,7 +22,7 @@ block content
                         .content(ng-if="!message.type")
                             span [SERVER] &nbsp;
                             a.header.name {{ message.username }} &nbsp;
-                            .description.message Katıldı
+                            .description.message {{ message.message }}
                 .ui.action.input.fluid
                     input(type='text', placeholder='Type here...')
                     button.ui.button Send

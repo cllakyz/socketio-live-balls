@@ -26,7 +26,18 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
                     const messageData = {
                         type: 0, // info
                         username: data.username,
+                        message: 'Katıldı',
+                    };
 
+                    $scope.messages.push(messageData);
+                    $scope.$apply();
+                });
+
+                socket.on('disUser', (user) => {
+                    const messageData = {
+                        type: 0, // info
+                        username: user.username,
+                        message: 'Ayrıldı',
                     };
 
                     $scope.messages.push(messageData);
