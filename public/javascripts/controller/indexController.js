@@ -62,6 +62,7 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
                 socket.on('newMessage', (data) => {
                     $scope.messages.push(data);
                     $scope.$apply();
+                    showBubbleMessage(data.socketId, data.message);
                     scrollTop();
                 });
 
@@ -92,6 +93,7 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
                     $scope.message = '';
 
                     socket.emit('newMessage', messageData);
+                    showBubbleMessage(socket.id, message);
                     scrollTop();
                 };
             })
@@ -105,5 +107,13 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
             const element = document.getElementById('chat-area');
             element.scrollTop = element.scrollHeight;
         }, 200);
+    }
+
+    function showBubbleMessage(id, msg) {
+        $('#' + id).find('.message').show().html(msg);
+
+        setTimeout(() => {
+            $('#' + id).find('.message').hide().html('');
+        }, 2000);
     }
 }]);
