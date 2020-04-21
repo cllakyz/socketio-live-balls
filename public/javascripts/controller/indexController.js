@@ -99,7 +99,8 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
                 scrollTop();
             };
         } catch (e) {
-            throw Error(e);
+            //throw Error(e);
+            console.log(e);
         }
     }
 
