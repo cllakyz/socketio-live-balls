@@ -9,6 +9,18 @@ body{ background-color: #f0f1f6!important; }
 .blue { background-color: #3498db; }
 .green { background-color: #16a085; }
 .red { background-color: #e74c3c; }
+.pink { background-color: #e91e63; }
+.purple { background-color: #9c27b0; }
+.cyan { background-color: #00b8d4; }
+.indigo { background-color: #3f51b5; }
+.teal { background-color: #00bfa5; }
+.lime { background-color: #aeea00; }
+.yellow { background-color: #ffd600; }
+.amber { background-color: #ffab00; }
+.orange { background-color: #ff6d00; }
+.brown { background-color: #3e2723; }
+.grey { background-color: #212121; }
+.blue-grey { background-color: #263238; }
 
 .circle .relative{ position: relative; }
 
