@@ -9,12 +9,17 @@ block content
                         .relative
                             span.name {{ player.username }}
                             .message
-                .ui.items.chat
+                .ui.items.chat#chat-area
                     .item(ng-repeat="message in messages")
                         .content(ng-if="!message.type")
                             span [SERVER] &nbsp;
                             a.header.name {{ message.username }} &nbsp;
                             .description.message {{ message.message }}
-                .ui.action.input.fluid
-                    input(type='text', placeholder='Type here...')
-                    button.ui.button Send
+
+                        .content(ng-if="message.type")
+                            a.header.name {{ message.username }} &nbsp;
+                            .description.message {{ message.message }}
+
+                form.ui.action.input.fluid(ng-submit="newMessage()")
+                    input(type='text', ng-model="message", placeholder='Type here...')
+                    button.ui.button(type="submit") Send

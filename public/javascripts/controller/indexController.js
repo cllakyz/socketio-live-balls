@@ -73,6 +73,23 @@ app.controller('indexController', ['$scope', 'indexFactory', ($scope, indexFacto
                         });
                     }
                 };
+
+                $scope.newMessage = () => {
+                    let message = $scope.message;
+                    const messageData = {
+                        type: 1, // user message
+                        username: username,
+                        message: message,
+                    };
+
+                    $scope.messages.push(messageData);
+                    $scope.message = '';
+
+                    setTimeout(() => {
+                        const element = document.getElementById('chat-area');
+                        element.scrollTop = element.scrollHeight;
+                    }, 200);
+                };
             })
             .catch((err) => {
                 console.log(err);
