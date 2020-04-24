@@ -20,6 +20,9 @@ app.controller('indexController', ['$scope', 'indexFactory', 'configFactory', ($
 
         try {
             const socketUrl = await configFactory.getConfig();
+            if (socketUrl.data.socketUrl !== 'http://localhost:3000') {
+                connectOptions.path = "/live-balls/socket.io";
+            }
             const socket = await indexFactory.connectSocket(socketUrl.data.socketUrl, connectOptions);
             //console.log('Bağlantı Yapıldı.', socket);
             socket.emit('newUser', { username });

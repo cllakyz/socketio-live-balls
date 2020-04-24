@@ -1,5 +1,13 @@
 const socketio = require('socket.io');
-const io = socketio();
+
+const NODE_ENV = process.env.NODE_ENV || 'development';
+let io;
+if (NODE_ENV !== 'development') {
+    const envData = require('../config/env.json')[NODE_ENV];
+    io = socketio(envData.socketUrl, { path: '/live-balls/socket.io' });
+} else {
+    io = socketio();
+}
 
 const socketApi = {
     io
