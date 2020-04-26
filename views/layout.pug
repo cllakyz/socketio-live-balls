@@ -3,16 +3,16 @@ html
     head
         meta(charset='UTF-8')
         title= title
-        link(rel='stylesheet', href='/semantic/dist/semantic.min.css')
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href= path + 'semantic/dist/semantic.min.css')
+        link(rel='stylesheet', href= path + 'stylesheets/style.css')
     body(ng-app="app", ng-cloak)
         block content
 
         block javascripts
-            script(src="/socket.io/socket.io.js")
-            script(src="/angular/angular.min.js")
-            script(src="/jquery/dist/jquery.min.js")
-            script(src="/javascripts/main.js")
-            script(src="/javascripts/services/configFactory.js")
-            script(src="/javascripts/services/indexFactory.js")
-            script(src="/javascripts/controller/indexController.js")
+            script(src= path + "socket.io/socket.io.js")
+            script(src= path + "angular/angular.min.js")
+            script(src= path + "jquery/dist/jquery.min.js")
+            script(src= path + "javascripts/main.js")
+            script(src= path + "javascripts/services/configFactory.js")
+            script(src= path + "javascripts/services/indexFactory.js")
+            script(src= path + "javascripts/controller/indexController.js")

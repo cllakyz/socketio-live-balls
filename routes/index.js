@@ -3,7 +3,8 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-    res.render('index', { title: 'Live Balls' });
+    const envData = require('../config/env.json')[process.env.NODE_ENV || 'development'];
+    res.render('index', { title: 'Live Balls', path: envData.path });
 });
 
 /* GET env file. */
